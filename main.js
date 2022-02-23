@@ -39,14 +39,16 @@ submit.addEventListener('click', () => {
     setTimeout(() => {
         feedback.textContent = ''
     }, 3000);
+    document.querySelector('#guess').value = ''
 })
 
 
 //set appropriate text depending on guessed number
 const getText = () => {
     const guess = parseInt(document.querySelector('#guess').value)
-    console.log(randomNum)
-    if(randomNum > guess){
+    if(guess < 1 || guess > 100){
+        return 'Please enter a valid number between 1 and 100'
+    }else if(randomNum > guess){
         return 'Your guess is too low'
     }else if(randomNum < guess){
         return 'Your guess is too high'
